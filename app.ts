@@ -38,6 +38,19 @@
 // }
 // }
 //
+interface ICore{
+    flight: number;
+    core: {
+        reuse_count: number;
+        status: string;
+    }
+}
+
+interface IPayloads{
+    payload_type: string;
+    payload_mass_kg: number;
+    payload_mass_lbs: number;
+}
 
 interface IObj {
 
@@ -52,24 +65,8 @@ interface IObj {
     },
     rocket: {
         rocket_name: string;
-        first_stage: {
-            cores: {
-                flight: number;
-                core: {
-                    reuse_count: number;
-                    status: string;
-                }
-            }[];
-        };
-        second_stage: {
-            payloads:
-                {
-                    payload_type: string;
-                    payload_mass_kg: number;
-                    payload_mass_lbs: number;
-                }[];
-
-        };
+        first_stage: ICore;
+        second_stage: IPayloads;
     };
 
 }
